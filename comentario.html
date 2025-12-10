@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cymora - Eternals (Replica)</title>
+
+<style>
+/* =================== COLORES Y BASE =================== */
+:root{
+  --bg:#0f0f12;
+  --glass: rgba(255,255,255,0.06);
+  --card:#ffffff;
+  --accent:#90d6ff;
+  --muted:#bfbfbf;
+  --orange:#ffb057;
+}
+
+*{box-sizing:border-box; margin:0; padding:0}
+
+body{
+  margin:0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.45), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  color:#fff;
+  min-height:100vh;
+}
+
+/* =================== HEADER =================== */
+header{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+
+.logo{
+  color:var(--accent);
+  font-size:32px;
+  font-weight:700;
+}
+
+nav{ display:flex; gap:22px; }
+nav a{
+  text-decoration:none;
+  color:#e8e8e8;
+  font-size:15px;
+}
+
+/* =================== CONTENEDOR PRINCIPAL =================== */
+.container{
+  display:flex;
+  gap:30px;
+  padding:30px;
+}
+
+/* =================== DONDE VER =================== */
+.where-card{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  width:260px;
+  padding:16px;
+  border-radius:14px;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.where-badge{
+  background:var(--orange);
+  padding:8px 12px;
+  border-radius:18px;
+  font-weight:700;
+  color:#331900;
+}
+
+/* =================== RUEDITA =================== */
+.chart{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:conic-gradient(#4aa8ff 0deg, #008cff 0deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  margin-top:20px;
+
+  box-shadow:0 0 12px rgba(0,150,255,0.45);
+}
+
+.chart::before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:#0f0f10;
+  border:5px solid #1d1d1f;
+}
+
+.chart-inner{
+  position:absolute;
+  color:#dce8ff;
+  font-weight:700;
+  font-size:26px;
+  z-index:10;
+}
+
+/* =================== ESTRELLAS =================== */
+.stars{
+  display:flex;
+  gap:10px;
+  font-size:38px;
+  cursor:pointer;
+  margin-top:12px;
+}
+
+.star{
+  color:#555;
+  transition:.2s;
+}
+.star.active{
+  color:#ffd86a;
+  text-shadow:0 0 6px rgba(255,215,80,0.5);
+}
+
+/* =================== PANEL DE COMENTARIOS MEJORADO =================== */
+.comment-panel{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.55);
+  width:100%;
+  max-width:760px;
+}
+
+.comment-input{
+  display:flex;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.comment-input input{
+  flex:1;
+  padding:12px 18px;
+  border-radius:20px;
+  border:none;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  font-size:15px;
+}
+
+.comment-input button{
+  padding:12px 20px;
+  border-radius:12px;
+  background:var(--accent);
+  border:none;
+  color:#00283d;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* Comentarios guardados */
+.comments-list{
+  margin-top:14px;
+}
+
+.comment-item{
+  background:white;
+  color:black;
+  padding:14px;
+  border-radius:12px;
+  margin-bottom:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.25);
+}
+
+.comment-name{
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+/* =================== REPARTO =================== */
+.cast-title{
+  font-size:22px;
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+.cast-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.actor-card{
+  padding:10px;
+  background:rgba(255,255,255,0.09);
+  border-radius:12px;
+  backdrop-filter:blur(6px);
+  text-align:center;
+}
+
+.actor-card img{
+  width:100%;
+  height:130px;
+  border-radius:10px;
+  object-fit:cover;
+  margin-bottom:8px;
+}
+
+.actor-name{
+  font-size:14px;
+}
+.where-btn {
+    border: none;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    width: 130px;
+    text-align: center;
+    transition: .25s ease;
+}
+
+/* NETFLIX – Rojo premium neon */
+.where-btn.netflix {
+    background: linear-gradient(135deg, #e50914, #b00610);
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+.where-btn.netflix:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 16px rgba(229, 9, 20, 0.7);
+}
+
+/* HBO MAX – Morado degradado royal */
+.where-btn.hbo {
+    background: linear-gradient(135deg, #7b4bff, #4a1bff);
+    box-shadow: 0 0 10px rgba(123, 75, 255, 0.4);
+}
+.where-btn.hbo:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 16px rgba(123, 75, 255, 0.7);
+}
+
+/* PRIME VIDEO – Azul futurista */
+.where-btn.prime {
+    background: linear-gradient(135deg, #00a8ff, #0072ff);
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.4);
+}
+.where-btn.prime:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 16px rgba(0, 168, 255, 0.7);
+}
+.container {
+    display: flex;
+    justify-content: center; /* CENTRA horizontal */
+    align-items: flex-start; /* Alinea arriba, bonito */
+    gap: 40px;               /* Espacio entre columnas */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;          /* CENTRA el contenedor */
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">cymora</a>
+  <nav>
+    <a href="#">Películas</a>
+    <a href="#">Series</a>
+    <a href="#">TV Shows</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="left">
+
+    <!-- DONDE VER + RUEDITA -->
+    <div style="display:flex; gap:30px; align-items:flex-start;">
+      
+      <!-- DONDE VER -->
+      <div class="where-card">
+        <div>
+          <div class="where-badge">¿Dónde ver?</div>
+          <div style="font-size:13px; color:var(--muted); margin-top:6px">Selecciona la plataforma</div>
+        </div>
+
+        <div class="where-list" style="display:flex; flex-direction:column; gap:12px;">
+          <button class="where-btn netflix">Netflix</button>
+          <button class="where-btn hbo">HBO Max</button>
+          <button class="where-btn prime">Prime Video</button>
+        </div>
+      </div>
+
+      <!-- RUEDITA -->
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <div class="chart" id="chart">
+          <div class="chart-inner" id="chartText">0%</div>
+        </div>
+
+        <div class="stars" id="stars">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANEL DE COMENTARIOS BONITO -->
+    <div class="comment-panel">
+
+      <div class="comment-input">
+        <input id="commentText" type="text" placeholder="Escribe un comentario..." />
+        <button id="sendBtn">Publicar</button>
+      </div>
+
+      <div class="comments-list" id="commentsList"></div>
+    </div>
+
+  </section>
+
+  <!-- REPARTO -->
+  <aside class="right">
+    <div class="cast-title">Reparto principal</div>
+
+    <div class="cast-grid">
+
+      <div class="actor-card">
+        <img src="https://i.pravatar.cc/300?img=12">
+        <div class="actor-name">Harry Styles</div>
+      </div>
+
+      <div class="actor-card">
+        <img src="https://i.pravatar.cc/300?img=25">
+        <div class="actor-name">Barry Keoghan</div>
+      </div>
+
+      <div class="actor-card">
+        <img src="https://i.pravatar.cc/300?img=56">
+        <div class="actor-name">Angelina Jolie</div>
+      </div>
+
+      <div class="actor-card">
+        <img src="https://i.pravatar.cc/300?img=32">
+        <div class="actor-name">Richard Madden</div>
+      </div>
+
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- =================== SCRIPT =================== -->
+<script>
+/* ==== ESTRELLAS + RUEDITA ==== */
+const starsEl = document.querySelectorAll(".star");
+const chart = document.getElementById("chart");
+const chartText = document.getElementById("chartText");
+
+starsEl.forEach(star => {
+  star.addEventListener("click", () => {
+    const value = Number(star.dataset.value);
+
+    starsEl.forEach(s => {
+      s.classList.remove("active");
+      if(Number(s.dataset.value) <= value){
+        s.classList.add("active");
+      }
+    });
+
+    const porcentaje = (value / 5) * 100;
+    chartText.textContent = porcentaje + "%";
+
+    chart.style.background = `
+      conic-gradient(
+        #6ec1ff ${porcentaje * 3.6}deg,
+        #1c6fff ${porcentaje * 3.6}deg
+      )
+    `;
+  });
+});
+
+/* ==== COMENTARIOS ==== */
+const commentsKey = "cymora_comments_v1";
+const commentsList = document.getElementById("commentsList");
+const input = document.getElementById("commentText");
+const sendBtn = document.getElementById("sendBtn");
+
+function renderComments(){
+  const arr = JSON.parse(localStorage.getItem(commentsKey) || "[]");
+  commentsList.innerHTML = "";
+  arr.reverse().forEach(c =>{
+    const div = document.createElement("div");
+    div.className = "comment-item";
+    div.innerHTML = `
+      <div class="comment-name">${c.name}</div>
+      <div class="comment-text">${c.text}</div>
+    `;
+    commentsList.appendChild(div);
+  })
+}
+
+sendBtn.addEventListener("click", ()=>{
+  const txt = input.value.trim();
+  if(!txt) return;
+
+  const arr = JSON.parse(localStorage.getItem(commentsKey) || "[]");
+  arr.push({name:"Usuario", text:txt});
+  localStorage.setItem(commentsKey, JSON.stringify(arr));
+
+  input.value="";
+  renderComments();
+});
+
+renderComments();
+</script>
+
+</body>
+</html>

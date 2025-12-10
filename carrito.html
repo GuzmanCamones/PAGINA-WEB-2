@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planes de Suscripción</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 36px;
+      letter-spacing: 1px;
+    }
+
+    .plans-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .plan {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 15px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+      transition: 0.3s ease-in-out;
+      border: 1px solid #333;
+    }
+
+    .plan:hover {
+      transform: scale(1.05);
+      border-color: #7587ff;
+      box-shadow: 0px 0px 15px rgba(255, 0, 72, 0.3);
+    }
+
+    .plan h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .price {
+      font-size: 32px;
+      margin: 15px 0;
+      font-weight: bold;
+      color: #0d36dc;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .btn {
+      background: #03426c;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #43c3ff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>ELIGE TU PLAN DE SUSCRIPCIÓN</h1>
+
+  <div class="plans-container">
+
+    <!-- Plan 1 -->
+    <div class="plan">
+      <h2>Básico</h2>
+      <p class="price">S/9.90</p>
+      <ul>
+        <li>1 pantalla</li>
+        <li>Calidad HD</li>
+        <li>Catálogo estándar</li>
+      </ul>
+      <a href="#" class="btn">Elegir Plan</a>
+    </div>
+
+    <!-- Plan 2 -->
+    <div class="plan">
+      <h2>Estándar</h2>
+      <p class="price">S/14.90</p>
+      <ul>
+        <li>2 pantallas</li>
+        <li>Full HD</li>
+        <li>Catálogo completo</li>
+      </ul>
+      <a href="#" class="btn">Elegir Plan</a>
+    </div>
+
+    <!-- Plan 3 -->
+    <div class="plan">
+      <h2>Premium</h2>
+      <p class="price">S/19.90</p>
+      <ul>
+        <li>4 pantallas</li>
+        <li>4K UHD</li>
+        <li>Todo el contenido + exclusivos</li>
+      </ul>
+      <a href="#" class="btn">Elegir Plan</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

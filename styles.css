@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #000;
+  color: white;
+}
+
+/* LOGIN */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), black),
+    url(img/azul\ fondo.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login-box {
+  background: rgba(0,0,0,0.65);
+  padding: 45px;
+  border-radius: 14px;
+  width: 360px;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.input-group { margin-bottom: 18px; }
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #1a1a1a;
+  color: white;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 13px;
+  margin-top: 15px;
+  background: #1b95d6;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn-login:hover {
+  background: #5b646d;
+  transform: scale(1.03);
+}
+
+/* PERFILES */
+.profiles-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.profiles-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.profile img {
+  width: 100%;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.profile:hover img {
+  border-color: #fff;
+  transform: scale(1.07);
+}
+
+.add-profile {
+  border: 2px dashed #555;
+  padding: 35px 0;
+  border-radius: 12px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.add-profile:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+
+.profile span {
+  display: block;
+  margin-top: 10px;
+}
+
+body {
+                          transition: background 0.3s, color 0.3s;
+                      }
+                  
+                      .oscuro {
+                          background: rgb(15, 113, 131);
+                          color: white;
+                      }
+                 
+                      #btnModo {
+                          padding: 10px 20px;
+                          cursor: pointer;
+                          font-size: 16px;
+                      }
+
